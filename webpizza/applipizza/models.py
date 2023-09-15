@@ -11,7 +11,7 @@ class Ingredient(models.Model):
     nomIngredient = models.CharField(max_length=50, verbose_name= "Nom de l'ingrédient")
 
     #methode to string
-    def __str__(self):
+    def __str__(self) -> str:
         return self.nomIngredient
 
 class Pizza(models.Model) :
@@ -23,7 +23,7 @@ class Pizza(models.Model) :
     nomPizza = models.CharField(max_length=50, verbose_name= "Nom de la pizza")
 
     #prix de la pizza
-    prixPizza = models.FloatField(max_digits=4, decimal_places=2, verbose_name= "Prix de la pizza")
+    prixPizza = models.DecimalField(max_digits=4, decimal_places=2, verbose_name= "Prix de la pizza")
 
     #tosring
     def __str__(self):
