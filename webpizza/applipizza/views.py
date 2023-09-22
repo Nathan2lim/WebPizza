@@ -23,5 +23,5 @@ def ingredients(request) :
     return render(
         request,
         'applipizza/ingredients.html',
-        {'ingredient' : lesIngredients}
+        {'ingredients' : lesIngredients}
     ) 
