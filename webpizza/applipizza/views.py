@@ -12,7 +12,7 @@ def pizzas(request) :
 
     return render(
         request,
-        'applipizza/pizza.html',
+        'applipizza/pizzas.html',
         {'pizzas' : lesPizzas}
     )
 
@@ -25,3 +25,13 @@ def ingredients(request) :
         'applipizza/ingredients.html',
         {'ingredients' : lesIngredients}
     ) 
+    
+def pizza(request, pizza_id) :
+    
+    laPizza = Pizza.objects.get(idPizza=pizza_id)
+    
+    return render(
+        request,
+        'applipizza/pizza.html',
+        {'pizza' : laPizza}
+    )
