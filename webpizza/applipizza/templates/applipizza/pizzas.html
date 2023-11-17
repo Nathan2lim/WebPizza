@@ -4,7 +4,7 @@
 <h2>Voici nos {{pizzas|length}} pizza(s)</h2>
 <ul>
   {% for piz in pizzas %}
-  <li>{{piz}}</li>
+  <li>{{piz}} | <a href="/pizza/{{piz.idPizza}}/"> détails </a> </li>
   {% endfor %}
 </ul>
 {% endblock %}

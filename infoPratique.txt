@@ -1,8 +1,9 @@
 pour démarer le serveur (pas d'endroit defini)
-python manage.py runserver
+python3 manage.py runserver
 
 pour rentrer dans l'environnement (à la racine du projet et taper)
 source env/bin/activate
+
 pour quitter l'environnement (pas d'endroit defini)
 deactivate
 

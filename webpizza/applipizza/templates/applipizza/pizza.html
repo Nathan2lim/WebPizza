@@ -1,5 +1,61 @@
 {% extends "applipizza/base.html" %} {% block title %} les pizzas {% endblock %}
 {% block main %}
 
-<p>La pizza n° {{pizza}}</p>
+<p>{{pizza }}</p>
+
+<!-- tableau avec la liste des ingredients et leur composition  -->
+{% if ingredients|length == 0 %}
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">nom</th>
+      <th scope="col">quantité</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for ingredient in compo %}
+    <tr>
+      <td>{{ ingredient.name}}</td>
+      <td>{{ ingredient.quantite }}</td>
+    </tr>
+    {% endfor %}
+  
+    {% else %}
+    <li>Cette pizza n'as pas encore d'ingredients</li>
+
+
+
+  {% endif %}
+
+<h2>ajouter un ingrédient</h2>
+<form action="/pizzas/{{pizza.idPizza}}/addIngredient/" method="post">
+
+  {% csrf_token %} 
+
+  <div class="mb-3">
+    <label for="id _ingredient" class="form-label">ingrédient </label> 
+    <select name="ingredient" class="form-select" required id="id_ingredient">
+      <option selected disabled>choisissez</option>
+        {% for ing in lesIng %}
+        <option value="{{ing.idIngredient}}">{{ing.nomIngredient}}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="id_quantite" class="form-label"> quantité </label>
+    <input type="text" name="quantite" class="form-control" maxlength="100" required id="id quantite">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Envoyer</button>
+
+</form>
+  
+</tbody>
+
+
 {% endblock %}

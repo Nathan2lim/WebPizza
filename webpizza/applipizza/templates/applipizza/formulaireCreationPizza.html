@@ -1,0 +1,21 @@
+{% extends "applipizza/base.html" %} {% block title %} formulaire ajout Pizza {% endblock %}
+{% block main %}
+
+<h1>Formulaire d'ajout d'une pizza avec prix</h1>
+
+<form action="/pizza/traitement" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="id_nomPizza" class="form-label">Le nom de cet Pizza  ainsi que son prix </label>
+        
+        <p>Nom de la pizza :</p>
+        <input type="text" name="nomPizza" class="form-control" maxlength="50" required id="id_nomPizza" placeholder = "Nom de la pizza             Exemple : Ma pizza">
+        
+        <p>Prix de la pizza : </p>
+        <input type="int" name="prixPizza" class="form-control" maxlength="50" required id="id_prixPizza" placeholder = "Prix de la pizza en €      Exemple :  2.95" >
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
+{% endblock %}

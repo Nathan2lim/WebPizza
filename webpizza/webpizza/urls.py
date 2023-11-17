@@ -20,7 +20,16 @@ from applipizza import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    
+    #Pour les pizzas
     path('pizzas/', views.pizzas),
+    path('pizza/<int:pizza_id>/', views.pizza),
+    path('pizza/add/', views.formulaireCreationPizza),
+    path('pizza/traitement', views.creerPizza),
+    path('pizza/<int:pizza_id>/addIngredient', views.ajouterIngredientsDansPizza),
+
+    #Pour les Ingredients
     path('ingredients/', views.ingredients),
-    path('pizza/<int:pizza_id>/', views.pizzas),
+    path('ingredient/add/', views.formulaireCreationIngredient),
+    path('ingredient/traitement', views.traitementIngredient),
 ]
