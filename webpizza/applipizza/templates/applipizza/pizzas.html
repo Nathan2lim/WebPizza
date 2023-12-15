@@ -4,7 +4,13 @@
 <h2>Voici nos {{pizzas|length}} pizza(s)</h2>
 <ul>
   {% for piz in pizzas %}
-  <li>{{piz}} | <a href="/pizza/{{piz.idPizza}}/"> détails </a> </li>
+  <li>{{piz}} | 
+    <a href="/pizza/{{piz.idPizza}}/"> détails </a> |
+    <a href="/pizza/{{piz.idPizza}}/update/"> update </a> |
+    <a href="/pizza/{{piz.idPizza}}/delete/"> delete </a>
+  
+  </li>
+
   {% endfor %}
 </ul>
 {% endblock %}

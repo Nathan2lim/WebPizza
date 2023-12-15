@@ -43,7 +43,7 @@ def pizza(request, pizza_id) :
         liste.append({"name" : c.ingredient.nomIngredient,"quantite" : c.quantite})
     
     listeIngredients = []
-    listeIngredients = [{'id': compo.idComposition, 'name': compo.ingredient.nomIngredient, 'quantity': compo.quantite} for compo in compoPizza]
+    listeIngredients = [{'id': compo.idComposition, 'name': compo.ingredient.nomIngredient, 'quantity': compo.quantite} for compo in compo]
     
     
     return render(
@@ -262,4 +262,26 @@ def ajouterIngredientsDansPizza(request, pizza_id) :
         request,
         'applipizza/pizzas.html',
         {"pizza" : piz, "lesIng" : listeIngredients, "all_ingredients" : lesIngredients}
+    )
+    
+    """
+    Créez la view supprimerPizza(request, pizza_id) dans le fichier views.py. Cette vue devra :
+a. récupérer la pizza à supprimer (grâce à la méthode get),
+b. appeler la méthode delete() sur cette pizza,
+c. récupérer la liste de toutes les pizzas grâce à la méthode all() comme dans la vue pizzas,
+d. appeler le template pizzas.html en lui fournissant le liste des pizzas (comme dans la vue pizzas).
+    """
+
+def supprimerPizza(request, pizza_id):
+    # Récupération de la pizza à supprimer
+    piz = Pizza.objects.get(idPizza=pizza_id)
+    # Suppression de la pizza
+    piz.delete()
+    # Récupération de la liste de toutes les pizzas
+    lesPizzas = Pizza.objects.all()
+    # Retour à la page pizzas.html
+    return render(
+        request,
+        'applipizza/pizzas.html',
+        {'pizzas': lesPizzas}
     )

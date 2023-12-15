@@ -27,9 +27,12 @@ urlpatterns = [
     path('pizza/add/', views.formulaireCreationPizza),
     path('pizza/traitement', views.creerPizza),
     path('pizza/<int:pizza_id>/addIngredient', views.ajouterIngredientsDansPizza),
+    path('pizza/<int:pizza_id>/delete/', views.supprimerPizza),
 
     #Pour les Ingredients
     path('ingredients/', views.ingredients),
     path('ingredient/add/', views.formulaireCreationIngredient),
     path('ingredient/traitement', views.traitementIngredient),
+    
+    
 ]
